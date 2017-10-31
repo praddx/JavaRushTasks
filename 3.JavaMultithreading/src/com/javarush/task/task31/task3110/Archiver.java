@@ -1,5 +1,8 @@
 package com.javarush.task.task31.task3110;
 
+import com.javarush.task.task31.task3110.command.Command;
+import com.javarush.task.task31.task3110.command.ExitCommand;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -12,7 +15,7 @@ import java.nio.file.Paths;
  */
 public class Archiver {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         try (BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Введите полный пусть архива (включая имя файла): ");
@@ -26,6 +29,8 @@ public class Archiver {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        new ExitCommand().execute();
 
     }
 }
