@@ -1,6 +1,7 @@
 package com.javarush.task.task28.task2808;
 
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -42,6 +43,36 @@ public class Solution {
     }
 
     public static Callable<String> getTask(final int i) {
-        return null;
+
+        return new Callable<String>() {
+
+            @Override
+            public String call() throws Exception {
+                /*long sum = 1;
+                for (int k = 2; k <= i; k++) {
+                    sum += k;
+                }*/
+                long sum = ((long) i * ((long)i + 1)) / 2;
+                return String.valueOf(sum);
+            }
+        };
     }
+
+    /*public class SumCount implements Callable<String> {
+
+        final int num;
+        int sum = 1;
+
+        public SumCount(int i) {
+            this.num = i;
+        }
+
+        @Override
+        public String call() throws Exception {
+            for (int i = 2; i <= num; i++) {
+              sum += i;
+            }
+            return String.valueOf(sum);
+        }
+    }*/
 }
